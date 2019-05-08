@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+init=epsg:3857" maximum-extent="-20037508.3,-20037508.3,20037508.3,20037508.3">
+
+<Parameters>
+  <Parameter name="maximum-extent"><![CDATA[-20037508.3,-20037508.3,20037508.3,20037508.3]]></Parameter>
+  <Parameter name="format">png8:m=h</Parameter>
+</Parameters>
+
+<Style name="b822032a-8375-4c9f-ac2a-afa531261bb1" filter-mode="first">
+  <Rule>
+    <Filter>([gencond] = 'dead')</Filter>
+    <LineSymbolizer stroke="#ffffff" stroke-width="2" stroke-opacity="0.6" clip="true" />
+    <PolygonPatternSymbolizer file="pod_crash.svg" opacity="0.9" clip="true" alignment="local" />
+    <PolygonSymbolizer fill-opacity="0" clip="true" />
+  </Rule>
+</Style>
+<Layer name="b822032a-8375-4c9f-ac2a-afa531261bb1"
+  cache-features="false"
+  srs="+init=epsg:3857">
+    <StyleName>b822032a-8375-4c9f-ac2a-afa531261bb1</StyleName>
+    <Datasource>
+       <Parameter name="extent"><![CDATA[-20037508.3,-20037508.3,20037508.3,20037508.3]]></Parameter>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="srid"><![CDATA[3857]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT 1 as cartodb_id, 'dead' as gencond, 'SRID=3857;MULTIPOLYGON(((-8838574.09571092 5415409.6422374,-8838575.03997533 5415409.47515107,-8838574.57512654 5415409.60014609,-8838574.09571092 5415409.6422374)))'::geometry as the_geom_webmercator) as cdbq]]></Parameter>
+       <Parameter name="dbname"><![CDATA[template_postgis]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[the_geom_webmercator]]></Parameter>
+    </Datasource>
+  </Layer>
+</Map>
